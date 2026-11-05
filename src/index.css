@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------
+   RUANG EDIT DESIGN SYSTEM (VIOLET & NEON LIME STYLE MỚI MẶC ĐỊNH)
+   ------------------------------------------------------------- */
+
+:root {
+  --app-bg: #F2EEF9;
+  --app-card-bg: #FFFFFF;
+  --app-primary: #5B25F5;
+  --app-accent: #C8F932;
+  --app-border: #E5DFFA;
+  --app-text: #18181B;
+  --app-muted: #6B667C;
+  --glow-color: rgba(91, 37, 245, 0.18);
+}
+
+/* Theme 1: Ruang Edit (MẶC ĐỊNH MỚI THEO HÌNH ẢNH MẪU: TÍM ĐIỆN TỬ & VÀNG LIME) */
+.theme-ruang-edit {
+  --app-bg: #F2EEF9;
+  --app-card-bg: #FFFFFF;
+  --app-primary: #5B25F5;
+  --app-accent: #C8F932;
+  --app-border: #E2DAF7;
+  --app-text: #18181B;
+  --app-muted: #6B667C;
+  --glow-color: rgba(91, 37, 245, 0.22);
+}
+
+/* Theme 2: Neo-Quest (Sky & Teal) */
+.theme-neo-quest {
+  --app-bg: #F8FAFD;
+  --app-card-bg: #FFFFFF;
+  --app-primary: #0284C7;
+  --app-accent: #0D9488;
+  --app-border: #E0E7FF;
+  --app-text: #0F172A;
+  --app-muted: #475569;
+  --glow-color: rgba(2, 132, 199, 0.18);
+}
+
+/* Theme 3: Vibrant Editorial (Tạp chí) */
+.theme-vibrant-editorial {
+  --app-bg: #FAF8F5;
+  --app-card-bg: #FFFFFF;
+  --app-primary: #C2410C;
+  --app-accent: #0F766E;
+  --app-border: #EADBCC;
+  --app-text: #1C1917;
+  --app-muted: #57534E;
+  --glow-color: rgba(194, 65, 12, 0.18);
+}
+
+/* Theme 4: Cyber Arcade (Neon Retro) */
+.theme-cyber-arcade {
+  --app-bg: #F5F3FF;
+  --app-card-bg: #FFFFFF;
+  --app-primary: #7C3AED;
+  --app-accent: #D97706;
+  --app-border: #DDD6FE;
+  --app-text: #0F172A;
+  --app-muted: #475569;
+  --glow-color: rgba(124, 58, 237, 0.2);
+}
+
+/* Theme 5: Warm Minimal (Scandinavian) */
+.theme-warm-minimal {
+  --app-bg: #F7F7F6;
+  --app-card-bg: #FFFFFF;
+  --app-primary: #059669;
+  --app-accent: #334155;
+  --app-border: #E5E7EB;
+  --app-text: #18181B;
+  --app-muted: #52525B;
+  --glow-color: rgba(5, 150, 105, 0.18);
+}
+
+/* Smooth transitions for theme switching */
+body, div, button, header, section {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Ruang Edit Style Card & Utilities */
+.card-ruang-white {
+  background: #FFFFFF;
+  border: 1px solid #E5DFFA;
+  border-radius: 28px;
+  box-shadow: 0 8px 30px -4px rgba(91, 37, 245, 0.05), 0 2px 8px -1px rgba(0, 0, 0, 0.02);
+}
+
+.card-ruang-violet {
+  background: #5B25F5;
+  color: #FFFFFF;
+  border: 1px solid #6E3EF7;
+  border-radius: 28px;
+  box-shadow: 0 16px 40px -8px rgba(91, 37, 245, 0.35);
+}
+
+.card-ruang-dark {
+  background: #1E1C27;
+  color: #FFFFFF;
+  border: 1px solid #322E42;
+  border-radius: 28px;
+  box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.25);
+}
+
+.dotted-capsule {
+  border: 1.5px dashed #A1A1AA;
+  border-radius: 9999px;
+  padding: 0.15rem 0.85rem;
+  display: inline-block;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  .fixed,
+  button,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  #root,
+  .min-h-screen,
+  .max-w-\[430px\] {
+    max-width: 100% !important;
+    width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #career-quest-report {
+    page-break-inside: auto;
+  }
+
+  .rounded-3xl,
+  .rounded-2xl {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+}

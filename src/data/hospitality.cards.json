@@ -1,0 +1,746 @@
+{
+  "industry": "hospitality",
+  "industryName": "Nhà hàng – Khách sạn – Du lịch",
+  "roles": [
+    {
+      "id": "LT",
+      "name": "Lễ Tân Khách Sạn",
+      "icon": "🛎️",
+      "desc": "Bộ mặt khách sạn, xử lý tình huống phát sinh và tiếp đón khách hàng.",
+      "topSkills": ["C", "P"]
+    },
+    {
+      "id": "HD",
+      "name": "Hướng Dẫn Viên",
+      "icon": "🗺️",
+      "desc": "Dẫn dắt các chuyến đi, ứng biến linh hoạt trước thay đổi thời tiết và lịch trình.",
+      "topSkills": ["C", "A"]
+    },
+    {
+      "id": "DP",
+      "name": "Điều Phối Sự Kiện",
+      "icon": "📋",
+      "desc": "Chạy đua với thời gian, kết nối các khâu hậu cần và ứng phó sự cố sân khấu.",
+      "topSkills": ["T", "P"]
+    },
+    {
+      "id": "PV",
+      "name": "Phục Vụ Nhà Hàng",
+      "icon": "🍽️",
+      "desc": "Tương tác trực diện với thực khách, giữ bình tĩnh giờ cao điểm và chuẩn mực an toàn.",
+      "topSkills": ["A", "E"]
+    }
+  ],
+  "situations": [
+    {
+      "id": "LT1",
+      "role": "LT",
+      "stakeholder": {
+        "name": "Mr. Daniel",
+        "type": "Khách",
+        "avatar": "😠",
+        "line": "Tôi đặt phòng view biển từ 2 tuần trước, sao giờ không có?!"
+      },
+      "text": "Hệ thống đặt phòng gặp lỗi kỹ thuật, phòng view biển đã xếp cho khách khác. Khách đang đứng đỏ mặt trước quầy, hàng dài khách khác đang chờ phía sau.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Xin lỗi chân thành, đề xuất phòng tiêu chuẩn cao hơn tương đương + tặng voucher đồ uống chào mừng.",
+          "fx": { "energy": -1, "rep": 1, "skills": { "C": 1, "P": 1 }, "health": 1, "budget": -5, "costly": true },
+          "feedback": "Khách hàng cảm nhận được sự tôn trọng và đồng ý nhận phòng mới. Quản lý khen ngợi bạn vì đã giải quyết êm đẹp tình huống căng thẳng.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Đổ lỗi hệ thống máy tính và yêu cầu khách ngồi chờ nhân viên IT xử lý.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "E": -1 }, "health": -1 },
+          "feedback": "Khách hàng tức giận quát lớn tại tiền sảnh và đòi gặp giám đốc điều hành. Uy tín dịch vụ của khách sạn bị giảm sút nghiêm trọng.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Tự ý nâng hạng phòng Suite Tổng thống cho khách mà không báo cáo cấp trên.",
+          "fx": { "energy": -1, "rep": 0, "skills": { "P": 1, "E": -1 }, "budget": -15, "costly": true },
+          "feedback": "Khách rất vui nhưng quản lý ca đã khiển trách bạn vì vi phạm quy trình kiểm soát chi phí phòng cao cấp.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "LT2",
+      "role": "LT",
+      "stakeholder": {
+        "name": "Quản lý ca Minh",
+        "type": "Sếp",
+        "avatar": "👔",
+        "line": "5 phút nữa đoàn 40 khách tới, bảng phân phòng xong chưa em?"
+      },
+      "text": "Đoàn khách công ty đến sớm hơn lịch hẹn 2 tiếng do chuyến bay thay đổi. Hiện tại nhiều phòng vẫn chưa hoàn tất dọn dẹp.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Phối hợp gấp với bộ phận Buồng phòng ưu tiên 15 phòng đã sẵn sàng, mời đoàn dùng đồ uống mát tại sảnh.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "T": 2 }, "health": 1, "budget": -3, "costly": true },
+          "feedback": "Sự linh hoạt phối hợp đồng đội giúp giải tỏa áp lực sảnh chờ. Trưởng đoàn khách hài lòng vì được chăm sóc chu đáo.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Tự mình chạy lên phụ dọn phòng và check-in đơn độc cho từng người.",
+          "fx": { "energy": -3, "rep": 1, "skills": { "A": 1 }, "health": 0 },
+          "feedback": "Bạn hoàn thành được việc nhưng kiệt sức trầm trọng, đồng thời bỏ trống quầy lễ tân khiến khách vãng lai phàn nàn.",
+          "quality": "ok"
+        },
+        {
+          "key": "C",
+          "text": "Bảo trưởng đoàn dắt khách đi dạo và quay lại đúng giờ quy định sau 1 tiếng.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "C": -1 }, "health": -2 },
+          "feedback": "Cả đoàn mệt mỏi sau chuyến bay dài và vô cùng bức xúc. Đơn vị lữ hành đe dọa hủy hợp đồng đối tác với khách sạn.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "LT3",
+      "role": "LT",
+      "stakeholder": {
+        "name": "Bà Hà - Doanh nhân",
+        "type": "Khách",
+        "avatar": "💼",
+        "line": "Tôi cần hóa đơn công ty ngay, 6h tôi có chuyến bay ra sân bay rồi!"
+      },
+      "text": "Máy in hóa đơn đỏ tại quầy chính bị kẹt giấy và cháy chip đúng khung giờ cao điểm khách trả phòng.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Chuyển sang xuất hóa đơn điện tử gửi thẳng qua email, gọi xác nhận mã số thuế và hướng dẫn khách kiểm tra trên điện thoại.",
+          "fx": { "energy": -1, "rep": 1, "skills": { "A": 2 }, "health": 1 },
+          "feedback": "Khách kịp giờ ra sân bay và ấn tượng với phản ứng nhanh nhẹn, chuyên nghiệp ứng dụng công nghệ của bạn.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Chạy vội sang quầy tòa nhà bên xin in nhờ, bỏ quầy lễ tân không người trực trong 15 phút.",
+          "fx": { "energy": -2, "rep": 0, "skills": { "T": 1, "E": -1 }, "health": -1, "backlog": true },
+          "feedback": "Bà Hà lấy được hóa đơn giấy nhưng quầy lễ tân của bạn bị ứ đọng hàng dài khách khác đang chờ thanh toán.",
+          "quality": "ok"
+        },
+        {
+          "key": "C",
+          "text": "Hẹn miệng sẽ gửi bưu điện sau mà không lập phiếu xác nhận thông tin cụ thể.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "E": -2 }, "health": -1 },
+          "feedback": "Khách phản ánh với ban giám đốc về sự vô trách nhiệm, hóa đơn sau đó bị thất lạc gây rắc rối kế toán.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "LT4",
+      "role": "LT",
+      "stakeholder": {
+        "name": "Bác Tư",
+        "type": "Khách",
+        "avatar": "👵",
+        "line": "Cháu ơi bác để quên ví tiền cùng giấy tờ quan trọng trong phòng cũ rồi!"
+      },
+      "text": "Khách lớn tuổi hớt hải báo quên ví. Bạn kiểm tra nhanh camera hành lang và nhận thấy có thể một nhân viên phục vụ đã nhặt được nhưng chưa báo cáo.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Báo ngay cho Quản lý ca và Đội An ninh, lập biên bản tiếp nhận sự việc và ân cần mời bác ngồi uống trà trấn an.",
+          "fx": { "energy": -1, "rep": 2, "skills": { "E": 2 }, "health": 1 },
+          "feedback": "Ví tiền được tìm thấy nguyên vẹn sau 20 phút. Bác Tư gửi thư cảm ơn viết tay khen ngợi đạo đức nghề nghiệp của bạn.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Gọi riêng đồng nghiệp bị nghi ngờ để gặng hỏi cho 'êm chuyện' nội bộ mà không báo cấp trên.",
+          "fx": { "energy": -1, "rep": -1, "skills": { "E": -1 }, "health": 0 },
+          "feedback": "Xảy ra cãi vã to tiếng trong khu vực nhân viên. Vụ việc bị đình trệ và quy trình bảo mật an ninh khách sạn bị vi phạm.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Bảo bác Tư tự đi thang máy lên phòng tìm lại vì khách sạn không chịu trách nhiệm tài sản phòng đã trả.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "C": -1 }, "health": -1 },
+          "feedback": "Khách bị hoảng loạn và vấp ngã ở hành lang. Người nhà khách khiếu nại gay gắt với thái độ vô cảm của lễ tân.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "HD1",
+      "role": "HD",
+      "stakeholder": {
+        "name": "Mai Anh - Du khách",
+        "type": "Khách",
+        "avatar": "😟",
+        "line": "Chị ơi, bạn em chưa lên xe! Đã 15 phút rồi, mình đi tiếp sao được?"
+      },
+      "text": "Một thành viên đoàn học sinh bị lạc tại điểm tham quan thứ 3 giữa khu di tích rộng lớn. Xe du lịch sắp đến giờ phải rời đi theo lịch trình cứng.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Yêu cầu xe đợi tại bãi, cử trợ lý tour cùng bảo vệ di tích rà soát, phát loa tìm kiếm và điều chỉnh nhẹ lịch điểm sau.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "P": 2, "E": 1 }, "health": 1 },
+          "feedback": "Bạn tìm thấy thành viên bị lạc an toàn tại quầy bán đồ lưu niệm. Đoàn khách tuy trễ 20 phút nhưng thán phục trách nhiệm của bạn.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Cho xe chạy tiếp theo đúng lịch, nhắn tin định vị cho bạn học sinh tự bắt taxi đuổi theo đoàn.",
+          "fx": { "energy": -1, "rep": -2, "skills": { "E": -2 }, "health": -2 },
+          "feedback": "Phụ huynh bạn học sinh gọi điện mắng chửi công ty du lịch vì bỏ rơi trẻ vị thành niên ở nơi xa lạ.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Cho cả đoàn 40 người ngồi yên trên xe chờ vô thời hạn mà không có hành động tìm kiếm cụ thể.",
+          "fx": { "energy": -2, "rep": 0, "skills": { "A": -1 }, "budget": -8, "costly": true, "health": -1 },
+          "feedback": "Không khí trên xe trở nên ngột ngạt và căng thẳng, mọi người bắt đầu cãi vã vì bị lỡ bữa trưa tại nhà hàng.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "HD2",
+      "role": "HD",
+      "stakeholder": {
+        "name": "Anh Hùng - Trưởng đoàn",
+        "type": "Khách",
+        "avatar": "⛈️",
+        "line": "Trời mưa to gió lớn thế này, tour đảo hôm nay còn đi được không em?"
+      },
+      "text": "Đài khí tượng vừa phát thông báo áp thấp nhiệt đới gây sóng lớn. Nửa số khách muốn mạo hiểm đi tiếp vì đã mua sắm, nửa số khách đòi hủy.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Tra cứu cảnh báo từ Ban Quản lý Cảng vụ, giải thích lý do an toàn tính mạng, đề xuất phương án tham quan bảo tàng và làng nghề trong đất liền.",
+          "fx": { "energy": -2, "rep": 2, "skills": { "A": 2, "E": 1 }, "health": 1, "budget": -5, "costly": true },
+          "feedback": "Cả đoàn đồng thuận chuyển hướng an toàn. Trải nghiệm làng nghề bất ngờ để lại nhiều kỷ niệm đẹp và nhận được cơn mưa lời khen.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Cứ cho cano xuất bến vì khách đã trả tiền đầy đủ và không muốn mất doanh thu ngày.",
+          "fx": { "energy": -1, "rep": -2, "skills": { "E": -2 }, "health": -2 },
+          "feedback": "Cano gặp sóng lớn suýt lật trên biển, khách hoảng loạn khóc lóc. Cảng vụ lập biên bản đình chỉ hoạt động tàu du lịch.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Hủy tour ngay lập tức, không đưa ra hoạt động thay thế và để khách tự túc ở khách sạn.",
+          "fx": { "energy": 0, "rep": -1, "skills": { "C": -1 }, "budget": -10, "costly": true, "health": -1 },
+          "feedback": "Khách cảm thấy chuyến đi bị lãng phí và thất vọng vì dịch vụ không có bất kỳ giải pháp chăm sóc khách hàng nào.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "HD3",
+      "role": "HD",
+      "stakeholder": {
+        "name": "Bác Nam",
+        "type": "Khách",
+        "avatar": "🤒",
+        "line": "Tôi thấy hoa mắt chóng mặt, buồn nôn quá không thở nổi…"
+      },
+      "text": "Một du khách cao tuổi có dấu hiệu sốc nhiệt nặng khi đang leo dốc đền đài giữa trưa nắng 38 độ C, cách xa trạm xá địa phương.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Đưa ngay khách vào bóng râm thoáng mát, cởi bớt cúc áo, chườm mát, cho bù nước điện giải và gọi cấp cứu 115 hỗ trợ khẩn cấp.",
+          "fx": { "energy": -2, "rep": 2, "skills": { "E": 2, "P": 1 }, "health": 1 },
+          "feedback": "Nhờ sơ cứu chuẩn y tế kịp thời, bác Nam hồi phục ổn định khi đội y tế tiếp cận. Gia đình xúc động nắm tay cảm ơn bạn.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Động viên bác 'ráng thêm 10 phút nữa là tới đỉnh rồi nghỉ', tiếp tục thúc giục đoàn di chuyển.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "E": -2 }, "health": -2 },
+          "feedback": "Khách bị ngất lịm tại chỗ gây chấn thương va chạm. Cả đoàn hoảng loạn và tour bị đình chỉ trong sự cố y tế nghiêm trọng.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Lấy viên thuốc hạ sốt kháng sinh cá nhân trong balo của bạn đưa cho khách uống bừa.",
+          "fx": { "energy": -1, "rep": -1, "skills": { "E": -2 }, "health": -1 },
+          "feedback": "Khách bị phản ứng phụ gây dị ứng thuốc mẩn đỏ khắp người. Đây là điều cấm kỵ với hướng dẫn viên không có bằng cấp y khoa.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "HD4",
+      "role": "HD",
+      "stakeholder": {
+        "name": "Ông Tuấn",
+        "type": "Khách",
+        "avatar": "😤",
+        "line": "Các anh tự tiện bỏ điểm tham quan mà tôi đã bỏ tiền ra mua! Hoàn tiền ngay!"
+      },
+      "text": "Điểm tham quan danh thắng bất ngờ đóng cửa sửa chữa khẩn cấp không báo trước. Khách hàng to tiếng đòi bồi thường ngay trước mặt cả đoàn 30 người.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Mời ông Tuấn ra khu vực riêng nói chuyện lịch sự, minh bạch công văn đóng cửa, bù đắp bằng điểm tham quan mới và hỗ trợ đơn khiếu nại công ty.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "C": 2, "P": 1 }, "health": 1, "budget": -5, "costly": true },
+          "feedback": "Sự khéo léo và đồng cảm giúp xoa dịu cơn giận dữ. Ông Tuấn hiểu hoàn cảnh khách quan và đồng ý hợp tác cùng đoàn.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "To tiếng đôi co công khai, khẳng định trong hợp đồng có điều khoản miễn trừ trách nhiệm sự kiện bất khả kháng.",
+          "fx": { "energy": -2, "rep": -2, "skills": { "C": -2 }, "health": -2 },
+          "feedback": "Tranh cãi leo thang thành xô xát bằng lời nói, các khách khác quay video đăng lên mạng xã hội tạo khủng hoảng truyền thông.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Tự ý móc ví cá nhân hứa sẽ hoàn lại 50% tiền vé cho khách mà chưa xin phép ban lãnh đạo lữ hành.",
+          "fx": { "energy": -1, "rep": -1, "skills": { "E": -2 }, "budget": -12, "costly": true, "health": -1 },
+          "feedback": "Hành động vượt thẩm quyền tạo tiền lệ xấu, các thành viên khác nghe thấy cũng ùa vào đòi hoàn tiền tương tự.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "DP1",
+      "role": "DP",
+      "stakeholder": {
+        "name": "Tiến sĩ Vũ - Diễn giả VIP",
+        "type": "Khách",
+        "avatar": "🎤",
+        "line": "Sao máy chiếu chính chưa chạy? Tôi chuẩn bị lên phát biểu trong 10 phút nữa!"
+      },
+      "text": "Hệ thống máy chiếu trung tâm hội trường phát nổ bóng đèn trước giờ khai mạc Hội thảo Công nghệ Quốc tế với 300 khách VIP tham dự.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Kích hoạt màn hình LED dự phòng sân khấu cánh, đồng bộ slide lên màn hình phụ, trao đổi MC kéo dài phần intro âm nhạc 3 phút.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "P": 2, "T": 1 }, "health": 1, "budget": -4, "costly": true },
+          "feedback": "Chuyển giao mượt mà không một vị khách nào dưới khán phòng nhận ra sự cố. Diễn giả gửi lời khen ngợi sự linh hoạt của đội ngũ kỹ thuật.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Tự tay trèo thang lên trần nhà loay hoay tháo máy chiếu sửa chữa mất 15 phút.",
+          "fx": { "energy": -3, "rep": -1, "skills": {}, "health": -1 },
+          "feedback": "Chương trình bị trễ giờ phát trực tiếp, diễn giả bực bội vì mất nhịp thuyết trình trước đối tác quan trọng.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Đề nghị diễn giả thuyết trình chay không cần trình chiếu hình ảnh hay tài liệu.",
+          "fx": { "energy": -1, "rep": 0, "skills": { "A": 1 }, "health": 0 },
+          "feedback": "Diễn giả đồng ý một cách gượng gạo nhưng chất lượng bài trình bày biểu đồ kỹ thuật bị giảm giá trị rõ rệt.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "DP2",
+      "role": "DP",
+      "stakeholder": {
+        "name": "Giám đốc sự kiện Hoàng",
+        "type": "Sếp",
+        "avatar": "👔",
+        "line": "MC chính vẫn kẹt xe! Còn đúng 20 phút nữa là bấm giờ lên sóng, em tính sao?"
+      },
+      "text": "Cơn mưa ngập đường khiến MC danh tiếng của lễ trao giải chưa thể đến địa điểm tổ chức. Khán phòng đã kín chỗ.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Đôn MC dự phòng lên dẫn dắt phần khai mạc, tóm tắt nhanh những lưu ý then chốt của kịch bản và thông báo đạo diễn âm thanh.",
+          "fx": { "energy": -2, "rep": 2, "skills": { "T": 2, "A": 1 }, "health": 1 },
+          "feedback": "MC dự phòng dẫn dắt tự nhiên, giữ trọn nhịp độ trang trọng. Sự bình tĩnh điều phối của bạn cứu nguy cả chương trình lớn.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Bạn liều mình cầm micro tự bước lên sân khấu làm MC dù chưa hề thuộc kịch bản.",
+          "fx": { "energy": -3, "rep": -1, "skills": { "E": -1 }, "health": -1 },
+          "feedback": "Bạn nói vấp liên tục và đọc sai tên nhà tài trợ kim cương, tạo sự ngượng ngùng cho toàn bộ khán phòng.",
+          "quality": "ok"
+        },
+        {
+          "key": "C",
+          "text": "Thông báo hoãn lễ khai mạc nửa tiếng để đợi MC chính mà không giải thích rõ ràng.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "C": -1 }, "health": -2 },
+          "feedback": "Các nhà báo và khách mời VIP bức xúc rời về sớm, sự kiện bị đánh giá là thiếu chuyên nghiệp và nghiệp dư.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "DP3",
+      "role": "DP",
+      "stakeholder": {
+        "name": "Bà Kim - Đối tác tổ chức",
+        "type": "Đối tác",
+        "avatar": "🧑💼",
+        "line": "Tôi muốn đổi toàn bộ sơ đồ sân khấu chữ T sang hình tròn, còn đúng 2 tiếng thôi!"
+      },
+      "text": "Khách hàng thuê trọn gói sự kiện ra yêu cầu thay đổi hoàn toàn kiến trúc sân khấu và lối đi người mẫu vào phút chót.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Họp nhanh với đội thi công, phân tích rủi ro an toàn kết cấu, đề xuất giải pháp trung gian tinh chỉnh bục chính kèm văn bản cam kết phát sinh.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "P": 2, "C": 1 }, "health": 1, "budget": -6, "costly": true },
+          "feedback": "Khách hàng cảm phục tư duy chuyên nghiệp và chấp nhận phương án tối ưu, sân khấu hoàn thành đúng tiến độ và an toàn.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Gật đầu đồng ý toàn bộ mọi yêu cầu để khách vui lòng, ép công nhân tăng ca bất chấp an toàn.",
+          "fx": { "energy": -3, "rep": -1, "skills": { "E": -1 }, "budget": -18, "costly": true, "health": -1 },
+          "feedback": "Sân khấu lắp vội không đảm bảo kết cấu tải trọng, một tấm ván sập nhẹ trong lúc tổng duyệt gây hoảng loạn.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Từ chối thẳng thừng với lý do hợp đồng đã đóng dấu và không hỗ trợ thêm bất cứ điều gì.",
+          "fx": { "energy": 0, "rep": -1, "skills": { "C": -1 }, "health": -1 },
+          "feedback": "Quan hệ với đối tác rơi vào bế tắc băng giá, khách hàng dọa cắt hợp tác trong các chuỗi sự kiện thường niên sau này.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "DP4",
+      "role": "DP",
+      "stakeholder": {
+        "name": "Ông Thắng - Bếp tiệc Catering",
+        "type": "Đối tác",
+        "avatar": "🍱",
+        "line": "Bên anh giao nhầm xe hàng, giờ chỉ cung cấp được 80% suất ăn tiệc tối thôi nhé."
+      },
+      "text": "Nhà cung cấp thực phẩm báo thiếu 40 suất tiệc cao cấp chỉ 1 giờ trước khi đón 200 quan khách vào bàn tiệc gala.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Kích hoạt hợp đồng đối tác nhà hàng dự phòng cấp tốc giao thêm món, phân bổ suất chuẩn cho bàn VIP và bù đắp tráng miệng cao cấp.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "P": 2, "A": 1 }, "health": 1, "budget": -15, "costly": true },
+          "feedback": "Toàn bộ thực khách đều được thưởng thức tiệc đầy đủ, chất lượng đồng đều không hề hay biết đã có sự cố giao hàng.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Âm thầm cắt bớt khẩu phần ăn trên đĩa của từng người chia đều ra để bù thiếu mà không nói gì.",
+          "fx": { "energy": -1, "rep": -2, "skills": { "E": -2 }, "health": -2 },
+          "feedback": "Thực khách phát hiện đĩa thức ăn sơ sài, lèo tèo và chụp ảnh chế giễu tiệc cưới sang chảnh trên mạng xã hội.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Đẩy toàn bộ trách nhiệm sang cho bên ẩm thực F&B tự chịu trách nhiệm giải trình với khách.",
+          "fx": { "energy": 0, "rep": -1, "skills": { "T": -1 }, "health": 0, "backlog": true },
+          "feedback": "Hai bên đổ lỗi qua lại làm tiệc bắt đầu trễ 45 phút, khách khát đói bức xúc la ó tại sảnh tiệc.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "PV1",
+      "role": "PV",
+      "stakeholder": {
+        "name": "Chị Lan - Phụ huynh",
+        "type": "Khách",
+        "avatar": "😰",
+        "line": "Con tôi bị dị ứng đậu phộng rất nặng! Món salad này có rắc đậu phộng không đấy?!"
+      },
+      "text": "Khách vừa ăn một miếng thì hốt hoảng hỏi lại, trong khi phiếu order trước đó nhân viên đã quên ghi chú dị ứng cho nhà bếp.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Lập tức thu hồi đĩa món, thành thật xin lỗi, báo Bếp trưởng kiểm tra nguyên liệu chế biến, chuẩn bị sẵn túi thuốc sơ cứu và theo dõi sát em bé.",
+          "fx": { "energy": -2, "rep": 2, "skills": { "E": 2, "C": 1 }, "health": 1, "budget": -5, "costly": true },
+          "feedback": "May mắn món ăn dùng hạt mè thay thế đậu phộng. Sự trung thực và hành động bảo vệ khách hàng hết mình khiến gia đình xúc động.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Xua tay cười nói 'Chắc bếp không bỏ đâu chị, ăn một ít không sao đâu' để khách an tâm ăn tiếp.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "E": -2 }, "health": -2 },
+          "feedback": "Bé bị sốc phản vệ sưng phù mặt phải nhập viện cấp cứu khẩn cấp. Nhà hàng bị cơ quan quản lý điều tra an toàn thực phẩm.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Lặng lẽ giật vội đĩa salad mang đi đổ mà không nói lý do, giấu nhẹm lỗi quên ghi chú order.",
+          "fx": { "energy": -1, "rep": -1, "skills": { "E": -1 }, "health": -1 },
+          "feedback": "Khách hoang mang lo lắng tột cùng, không gian bữa tiệc sinh nhật của gia đình bị phá hỏng hoàn toàn.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "PV2",
+      "role": "PV",
+      "stakeholder": {
+        "name": "Anh Sơn",
+        "type": "Khách",
+        "avatar": "😡",
+        "line": "Tôi đặt bàn số 8 từ tuần trước, sao nhóm kia lại đang ngồi chỗ của tôi?!"
+      },
+      "text": "Do sự nhầm lẫn giữa hệ thống online và tại bàn, hai nhóm khách cùng nhận một vị trí đắc địa nhìn ra bờ sông lúc tối thứ Bảy.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Chân thành nhận lỗi, mời nhóm anh Sơn thưởng thức mocktail tại quầy bar và chuẩn bị bàn view sân vườn lãng mạn kèm ưu đãi đặc biệt.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "C": 2, "P": 1 }, "health": 1, "budget": -4, "costly": true },
+          "feedback": "Cả hai nhóm đều vui vẻ và hài lòng với phong thái phục vụ ân cần, quản lý chấm bạn điểm tối đa trong ca trực.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Đề nghị hai nhóm khách tự thương lượng với nhau xem ai nhường ai.",
+          "fx": { "energy": 0, "rep": -1, "skills": { "C": -1 }, "health": -1 },
+          "feedback": "Hai bên khách to tiếng chửi nhau ngay giữa nhà hàng làm các bàn xung quanh sợ hãi bỏ về.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Kê vội một chiếc bàn phụ tạm bợ chèn vào lối đi của phục vụ để anh Sơn ngồi.",
+          "fx": { "energy": -2, "rep": 0, "skills": { "A": 1, "E": -1 }, "health": 0 },
+          "feedback": "Khách cảm thấy bị đối xử rẻ rúng khi phải ngồi chật chội ngay lối đi qua lại của xe đẩy thức ăn.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "PV3",
+      "role": "PV",
+      "stakeholder": {
+        "name": "Khách say xỉn",
+        "type": "Khách",
+        "avatar": "🍺",
+        "line": "Mang thêm cho tao 2 chai rượu mạnh nữa ra đây, tao bo gấp đôi tiền!"
+      },
+      "text": "Một vị khách đã uống quá nhiều, nói năng mất kiểm soát và bắt đầu có hành vi quấy rối, trêu chọc bàn gia đình bên cạnh.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Khéo léo từ chối phục vụ thêm cồn, mời nước chanh ấm giải rượu, bí mật báo quản lý và an ninh hỗ trợ đưa khách ra xe an toàn.",
+          "fx": { "energy": -2, "rep": 2, "skills": { "E": 2, "C": 1 }, "health": 1 },
+          "feedback": "Tình huống được khống chế văn minh, giữ an toàn tuyệt đối cho các thực khách khác trong khán phòng.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Tiếp tục mang thêm 2 chai rượu ra để ăn thêm tiền boa thưởng đậm.",
+          "fx": { "energy": -1, "rep": -1, "skills": { "E": -2 }, "health": -1, "budget": 5 },
+          "feedback": "Khách đập vỡ chai rượu gây thương tích cho nhân viên, cảnh sát địa phương phải can thiệp giải quyết.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Lờ đi và trốn vào bếp, để mặc các nhân viên chạy bàn khác tự đối mặt với khách say.",
+          "fx": { "energy": 0, "rep": -2, "skills": { "T": -1 }, "health": -1, "backlog": true },
+          "feedback": "Bạn bị đồng nghiệp cô lập vì thiếu tinh thần tương trợ và bỏ rơi trách nhiệm lúc đồng đội gặp nguy hiểm.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "PV4",
+      "role": "PV",
+      "stakeholder": {
+        "name": "Bếp trưởng Hải",
+        "type": "Đồng nghiệp",
+        "avatar": "👨🍳",
+        "line": "Món bò Wagyu đặc biệt hôm nay hết sạch nguyên liệu rồi, các bàn đang gọi ầm ĩ kia kìa!"
+      },
+      "text": "Món ăn 'signature' của nhà hàng cháy hàng giữa giờ cao điểm cuối tuần, trong khi có 5 bàn đang háo hức chờ gọi món này.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Chủ động đến từng bàn giải thích duyên dáng, giới thiệu món sườn cừu đút lò cùng tầm giá kèm tặng một phần tráng miệng đặc biệt.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "A": 2, "C": 1 }, "health": 1, "budget": -4, "costly": true },
+          "feedback": "Khách hàng vui vẻ chuyển món và bất ngờ thích thú với món gợi ý mới. Doanh thu ca trực vẫn giữ vững mốc mục tiêu.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Cứ nhận order của khách, định bụng để nửa tiếng nữa mới ra báo hết để kéo dài thời gian.",
+          "fx": { "energy": -1, "rep": -2, "skills": { "E": -1 }, "health": -2 },
+          "feedback": "Khách chờ đói bụng suốt 40 phút rồi mới biết bị lừa dối, tức giận đập bàn bỏ về và để lại đánh giá 1 sao trên Google Maps.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Chỉ đi ngang qua bàn nói cộc lốc một câu 'Món này hết rồi, chọn cái khác đi'.",
+          "fx": { "energy": -1, "rep": 0, "skills": { "C": -1 }, "health": 0 },
+          "feedback": "Thái độ khô khan làm thực khách mất hứng, họ chỉ gọi một món ăn nhanh qua loa rồi thanh toán rời đi.",
+          "quality": "ok"
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "role": "ALL",
+      "stakeholder": {
+        "name": "Đồng nghiệp Thảo",
+        "type": "Đồng nghiệp",
+        "avatar": "🥱",
+        "line": "Chị ơi, đổi cho em ca trực đêm nay với, em bị kiệt sức đau đầu quá không gượng nổi…"
+      },
+      "text": "Đồng nghiệp cùng tổ xin đổi ca trực nối tiếp, trong khi bạn vừa hoàn thành 6 tiếng làm việc liên tục và cũng đang khá mệt mỏi.",
+      "timeLimit": 40,
+      "options": [
+        {
+          "key": "A",
+          "text": "Đồng ý hỗ trợ đồng đội nhưng báo cáo chính thức với Quản lý ca để ghi nhận tăng ca và xin sắp xếp nghỉ bù hợp lý.",
+          "fx": { "energy": -2, "rep": 1, "skills": { "T": 2, "E": 1 }, "health": 1 },
+          "feedback": "Sự sẻ chia và tinh thần trách nhiệm gắn kết đồng đội. Thảo vô cùng biết ơn bạn và quản lý đánh giá cao tinh thần vì tập thể.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Từ chối thẳng thừng vì hết giờ làm việc theo hợp đồng của mình.",
+          "fx": { "energy": 0, "rep": -1, "skills": { "T": -1 }, "health": 0 },
+          "feedback": "Bạn bảo toàn được năng lượng cá nhân nhưng mối quan hệ đồng nghiệp trong tổ trở nên xa cách và lạnh nhạt.",
+          "quality": "ok"
+        },
+        {
+          "key": "C",
+          "text": "Nhận lời lén lút làm thay không qua cấp phép, tự ý chấm công hộ.",
+          "fx": { "energy": -3, "rep": -1, "skills": { "E": -2 }, "health": -1 },
+          "feedback": "Vi phạm quy chế nhân sự nghiêm trọng, cả hai bạn đều bị lập biên bản cảnh cáo trừ thưởng tháng.",
+          "quality": "bad"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "role": "ALL",
+      "stakeholder": {
+        "name": "Giám đốc điều hành",
+        "type": "Sếp",
+        "avatar": "📱",
+        "line": "Còn đúng 10 phút hết ca! Có bài bóc phốt 1 sao đang lan truyền chóng mặt trên mạng, em xử lý sao?"
+      },
+      "text": "Một khách hàng chụp ảnh đĩa thức ăn nguội lạnh và bài viết đang đạt hàng nghìn lượt chia sẻ, đe dọa trực tiếp đến hình ảnh thương hiệu doanh nghiệp.",
+      "timeLimit": 60,
+      "options": [
+        {
+          "key": "A",
+          "text": "Phản hồi công khai lịch sự và chân thành, nhận trách nhiệm, đồng thời chủ động nhắn tin riêng xin phép gọi điện bù đắp thỏa đáng cho khách.",
+          "fx": { "energy": -2, "rep": 2, "skills": { "C": 2, "P": 1 }, "health": 1, "budget": -5, "costly": true },
+          "feedback": "Khách hàng cảm kích thái độ cầu thị, tự gỡ bài viết tiêu cực và cập nhật bài khen ngợi văn hóa ứng xử chuyên nghiệp.",
+          "quality": "good"
+        },
+        {
+          "key": "B",
+          "text": "Dùng nick ảo báo cáo bài viết hoặc thuê người vào bình luận công kích ngược lại khách hàng.",
+          "fx": { "energy": -1, "rep": -2, "skills": { "E": -2 }, "health": -1 },
+          "feedback": "Cộng đồng mạng phát hiện dấu vết tấn công bẩn, khủng hoảng bùng phát dữ dội gấp mười lần.",
+          "quality": "bad"
+        },
+        {
+          "key": "C",
+          "text": "Mặc kệ đóng máy tính đi về vì đã hết giờ làm việc, để ca sáng mai tự giải quyết.",
+          "fx": { "energy": 1, "rep": -1, "skills": { "E": -1 }, "health": -1, "backlog": true },
+          "feedback": "Sau một đêm không có tiếng nói chính thức, sự việc lọt vào top trending mạng xã hội, gây thiệt hại nghiêm trọng.",
+          "quality": "bad"
+        }
+      ]
+    }
+  ],
+  "crisis": [
+    {
+      "id": "K1",
+      "title": "Sập hệ thống đặt phòng toàn khách sạn",
+      "text": "Cơ sở dữ liệu đám mây của chuỗi khách sạn bị lỗi phân giải, toàn bộ thông tin đặt phòng 400 khách bị biến mất vào chiều thứ Sáu.",
+      "timeLimit": 180,
+      "options": [
+        {
+          "key": "A",
+          "text": "Chuyển sang quy trình check-in giấy thủ công, huy động toàn bộ nhân viên khối văn phòng hỗ trợ đón khách tại sảnh.",
+          "fx": { "energy": -3, "rep": 2, "skills": { "P": 2, "T": 2 }, "health": 1, "budget": -10, "costly": true },
+          "feedback": "Hệ thống vận hành được giải tỏa áp lực nhờ tinh thần phối hợp kiên cường."
+        },
+        {
+          "key": "B",
+          "text": "Chờ đợi đội ngũ kỹ sư IT khắc phục từ xa, yêu cầu khách ngồi kiên nhẫn đợi.",
+          "fx": { "energy": 0, "rep": -2, "skills": {}, "health": -2, "budget": 0 },
+          "feedback": "Hàng trăm khách vây kín sảnh la ó suốt 3 tiếng đồng hồ, uy tín sụp đổ."
+        },
+        {
+          "key": "C",
+          "text": "Chấp nhận hoàn tiền cọc toàn bộ và hỗ trợ chi phí chuyển khách sang các khách sạn lân cận.",
+          "fx": { "energy": -1, "rep": 1, "skills": { "E": 2 }, "health": 0, "budget": -25, "costly": true },
+          "feedback": "Bảo vệ được danh dự nhưng ngân sách chi nhánh bị thâm hụt nặng nề."
+        }
+      ]
+    },
+    {
+      "id": "K2",
+      "title": "Bão quét làm hủy toàn bộ tour du lịch biển",
+      "text": "Bão đổ bộ sớm 24 giờ so với dự báo, 150 khách bị kẹt lại đảo xa không có tàu thuyền đất liền nào được phép hoạt động.",
+      "timeLimit": 180,
+      "options": [
+        {
+          "key": "A",
+          "text": "Lập tức liên hệ ban chỉ huy phòng chống lụt bão, bố trí chỗ lưu trú an toàn kiên cố và cung cấp lương thực nước uống miễn phí.",
+          "fx": { "energy": -3, "rep": 2, "skills": { "E": 2, "T": 2 }, "health": 1, "budget": -20, "costly": true },
+          "feedback": "Toàn bộ du khách an toàn 100% và cảm động trước sự bảo bọc quên mình của đội ngũ."
+        },
+        {
+          "key": "B",
+          "text": "Hoàn tiền tour chưa đi và để khách tự tìm nhà dân trú ẩn.",
+          "fx": { "energy": 0, "rep": -2, "skills": {}, "health": -1, "budget": -15 },
+          "feedback": "Khách bị bỏ rơi giữa vùng bão nguy hiểm, tạo nên sự phẫn nộ tột cùng."
+        },
+        {
+          "key": "C",
+          "text": "Yêu cầu khách tự trả thêm chi phí khách sạn phát sinh theo giá ngày lễ.",
+          "fx": { "energy": 0, "rep": -3, "skills": { "E": -2 }, "health": -2, "budget": 0 },
+          "feedback": "Khách biểu tình phản đối ngay tại sảnh khách sạn vì sự trục lợi trong hoạn nạn."
+        }
+      ]
+    },
+    {
+      "id": "K3",
+      "title": "Nghi vấn an toàn thực phẩm tại đại tiệc kỷ niệm",
+      "text": "Sau món hải sản sốt phô mai, 12 khách tiệc cưới có biểu hiện đau bụng và buồn nôn liên tục.",
+      "timeLimit": 180,
+      "options": [
+        {
+          "key": "A",
+          "text": "Lập tức ngưng phục vụ món nghi vấn, gọi xe cấp cứu y tế túc trực, niêm phong mẫu thực phẩm kiểm nghiệm và minh bạch thông tin.",
+          "fx": { "energy": -3, "rep": 2, "skills": { "E": 2, "C": 1 }, "health": 1, "budget": -20, "costly": true },
+          "feedback": "Hành động dũng cảm ngăn chặn kịp thời vụ ngộ độc diện rộng, giữ trọn chữ tín và đạo đức."
+        },
+        {
+          "key": "B",
+          "text": "Xử lý âm thầm trong nội bộ, đưa thuốc tiêu hóa cho từng khách và giấu mẫu thức ăn đi.",
+          "fx": { "energy": -1, "rep": -3, "skills": { "E": -3 }, "health": -3, "budget": 0 },
+          "feedback": "Thanh tra y tế vào cuộc đột xuất xử phạt kịch khung và tước giấy phép kinh doanh."
+        },
+        {
+          "key": "C",
+          "text": "Lập tức đăng bài mạng xã hội đổ lỗi hoàn toàn cho nhà cung cấp thực phẩm bên ngoài.",
+          "fx": { "energy": -1, "rep": -2, "skills": { "C": -1, "E": -2 }, "health": -2, "budget": 0 },
+          "feedback": "Bị đối tác kiện tội vu khống, thương hiệu đánh mất lòng tin của khách hàng lâu năm."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Career Quest – Trải Nghiệm Nghề Nghiệp",
+  "description": "Game thử việc ảo cho học sinh THPT: nhập vai nhân viên, giải quyết tình huống thực tế và nhận đánh giá năng lực.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
