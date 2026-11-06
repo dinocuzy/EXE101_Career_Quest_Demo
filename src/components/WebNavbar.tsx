@@ -111,9 +111,6 @@ export const WebNavbar: React.FC = () => {
                   Career Quest
                 </span>
               </div>
-              <span className="text-[10px] text-[#5B25F5] font-bold uppercase tracking-wider block">
-                Virtual Job Simulation
-              </span>
             </div>
           </button>
 
